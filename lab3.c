@@ -72,8 +72,9 @@ void display()
     {
         for (int i = 0; i <= top; i++)
         {
-            printf("%d ", s[i]);
+            printf("| %d |\n", s[i]);
         }
+        
     }
 
     printf("\n");
