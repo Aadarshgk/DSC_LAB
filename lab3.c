@@ -74,6 +74,7 @@ void display()
         {
             printf("| %d |\n", s[i]);
         }
+        printf("=====");
         
     }
 
