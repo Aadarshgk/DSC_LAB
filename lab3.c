@@ -66,7 +66,7 @@ void display()
 {
     if (top == -1)
     {
-        printf("Error 404");
+        printf("Stack empty");
     }
     else
     {
