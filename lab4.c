@@ -3,7 +3,7 @@
 
 int s[20], top=-1;
 
-void push(){
+void push(char a){
 }
 
 int isEmpty(){
@@ -16,5 +16,16 @@ void main(){
     printf("Enter the expression to be converted to postfix notation:");
     scanf("%s",a);
     while(a[i]!='\0'){
+
+        if(a[i]=='('){
+            push('(');
+        }
+        
+        else if(isalnum(a[i])){
+            printf("%c",a[i]);
+        }
+
+
+        i++;
     }
 }
