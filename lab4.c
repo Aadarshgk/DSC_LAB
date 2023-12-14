@@ -1,9 +1,11 @@
 #include<stdio.h>
 #include<ctype.h>
 
-int s[20], top=-1;
+char s[20];
+int top=-1;
 
 void push(char a){
+    s[++top];
 }
 
 char pop(){
@@ -22,24 +24,25 @@ void main(){
     while(a[i]!='\0'){
 
         if(a[i]=='('){
-            push('(');
+            push(a[i]);
         }
         
         else if(isalnum(a[i])){
             printf("%c",a[i]);
         }
 
-        else if(a[i]=='('){
-            push('(');
-        }
-
         else if(a[i]==')'){
-            while(s[top]!='('){
+            while((x=pop())!='('){
                 printf("%c",pop());
             }
         }
 
-
+        else{
+            if(!isEmpty() && priority(a[i])>=priority(a[i])){
+                printf("%c",pop());
+            }
+            push(a[i]);
+        }
         i++;
     }
 }
