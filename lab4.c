@@ -6,6 +6,10 @@ int s[20], top=-1;
 void push(char a){
 }
 
+char pop(){
+    return s[top--];
+}
+
 int isEmpty(){
     return top == -1;
 }
@@ -23,6 +27,16 @@ void main(){
         
         else if(isalnum(a[i])){
             printf("%c",a[i]);
+        }
+
+        else if(a[i]=='('){
+            push('(');
+        }
+
+        else if(a[i]==')'){
+            while(s[top]!='('){
+                printf("%c",pop());
+            }
         }
 
 
