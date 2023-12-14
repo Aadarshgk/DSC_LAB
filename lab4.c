@@ -9,7 +9,21 @@ void push(char a){
 }
 
 char pop(){
+    if(top==-1){
+        return -1;
+    }
+
     return s[top--];
+}
+
+int priority(char a){
+    if(a=='(' || a==')'){
+        return 0;
+    }else if(a=='+' || a=='-'){
+        return 1;
+    }else if(a=='*' || a=='/'){
+        return 2;
+    }
 }
 
 int isEmpty(){
