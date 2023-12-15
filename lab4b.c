@@ -16,7 +16,7 @@ int pop(){
 
 void main(){
     char a[20];
-    int num;
+    int num,n1,n2,res;
     int i=0;
     printf("Enter the postfix notation to evaluate output:");
     scanf("%s",a);
@@ -27,7 +27,28 @@ void main(){
         }
         else{
 
+            n2= pop();
+            n1= pop();
+            switch(a[i]){
+                case '+':
+                    res=n1+n2;
+                    break;
+                
+                case '-':
+                    res= n1-n2;
+                    break;
+                
+                case '*':
+                    res = n1*n2;
+                    break;
 
+                case '/':
+                    res = n1/n2;
+                    break;
+
+                
+            }
+            push(res);
         }
 
     i++;
