@@ -1,5 +1,5 @@
 # DSC_LAB
 
-Here I push the programs part of DSC lab.
+Here I push DSC lab programs.
 
 Language- C
