@@ -5,7 +5,7 @@
 int s[20],top = -1;
 
 void push(int a){
-    return s[++top]=a;
+    s[++top]=a;
 }
 
 int pop(){
@@ -53,4 +53,6 @@ void main(){
 
     i++;
     }
+
+    printf("The result is: %d",pop());
 }
