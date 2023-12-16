@@ -1,3 +1,11 @@
+/*Define an EMPLOYEE structure with members Emp_name, Emp-id,
+Dept-name and Salary. Read and display data of N employees.
+Employees may belong to different departments. Write a function to
+find total salary of employees of a specified department. Use the
+concept of pointer to structure and allocate the memory dynamically to
+EMPLOYEE instances */
+
+
 #include<stdio.h>
 #include<stdlib.h>
 #include<string.h>
