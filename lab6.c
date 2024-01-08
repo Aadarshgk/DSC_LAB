@@ -11,7 +11,7 @@ int binarySearch(int ar[], int key, int low, int high)
         }
         else if (key > ar[mid])
         {
-            binarySearch(ar, key, mid + 1, high);
+            return binarySearch(ar, key, mid + 1, high);
         }
 
         return binarySearch(ar, key, low, mid - 1);
@@ -31,13 +31,17 @@ void main()
     {
         scanf("%d", &ar[i]);
     }
+
     printf("Enter the element to be searched: ");
     scanf("%d", &key);
-    int result = binarySearch(ar, key, 0, n-1);
+    int result = binarySearch(ar, key, 0, n - 1);
 
-    if (result != -1){
-        printf("The element is present in %d position", result+1);
-    }else{
+    if (result == -1)
+    {
         printf("The element is not present in array.");
+    }
+    else
+    {
+        printf("The element is present in %d position", result);
     }
 }
