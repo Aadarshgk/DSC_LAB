@@ -42,6 +42,6 @@ void main()
     }
     else
     {
-        printf("The element is present in %d position", result);
+        printf("The element is present in %d position", result+1);
     }
 }
