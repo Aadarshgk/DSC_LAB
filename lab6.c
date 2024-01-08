@@ -33,7 +33,7 @@ void main()
     }
     printf("Enter the element to be searched: ");
     scanf("%d", &key);
-    int result = binarySearch(ar, key, 0, n);
+    int result = binarySearch(ar, key, 0, n-1);
 
     if (result != -1){
         printf("The element is present in %d position", result+1);
