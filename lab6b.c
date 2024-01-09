@@ -1,3 +1,6 @@
+// Write recursive functions for the following and demonstrate their use.
+// Tower of Hanoi
+
 #include <stdio.h>
 
 int step=0;
