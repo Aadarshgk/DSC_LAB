@@ -1,3 +1,6 @@
+// Write a recursive function for the following and demonstrate their use.
+// Binary Search
+
 #include <stdio.h>
 
 int binarySearch(int ar[], int key, int low, int high)
