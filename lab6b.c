@@ -1,10 +1,12 @@
 #include <stdio.h>
 
+int step=0;
+
 void towerOfHanoi(int n, char A, char B, char C)
 {
     if (n == 1)
     {
-        printf("Move ring from %c to %c \n", A, C);
+        printf("Step %d:Move a ring from %c to %c \n", ++step, A, C);
     }
     else{
         towerOfHanoi(n-1,A,C,B);
