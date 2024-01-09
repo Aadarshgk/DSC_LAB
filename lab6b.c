@@ -4,7 +4,7 @@ void towerOfHanoi(int n, char A, char B, char C)
 {
     if (n == 1)
     {
-        printf("Move ring from %c to %c ", A, C);
+        printf("Move ring from %c to %c \n", A, C);
     }
     else{
         towerOfHanoi(n-1,A,C,B);
