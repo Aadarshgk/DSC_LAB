@@ -13,8 +13,8 @@ void insert(int num){
         return;
     }else{
         end= (end+1)%max;
-        queue[end]=num;
     }
+    queue[end]=num;
 }
 
 void delete(){
