@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include<stdlib.h>
 #define max 3
 
 int queue[max],front = -1, end = -1;
@@ -33,7 +34,7 @@ void display(){
         printf("%d",queue[i]);
         i=(i+1)%max;
     }while(i!=end);
-    
+
 }
 
 void main()
