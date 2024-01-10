@@ -3,8 +3,21 @@
 
 int queue[max],front = -1, end = -1;
 
-void insert(int num);
-void delete();
+void insert(int num){
+    if(front==-1){
+        front=end=0;
+    }
+    if(front == (end+1)%max){
+        printf("Queue is full");
+        return;
+    }else{
+        end= (end+1)%max;
+        queue[end]=num;
+    }
+}
+void delete(){
+    
+}
 void display();
 
 void main()
