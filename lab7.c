@@ -5,12 +5,12 @@
 int queue[max],front = -1, end = -1;
 
 void insert(int num){
-    if(front==-1){
-        front=end=0;
-    }
     if(front == (end+1)%max){
         printf("Queue is full");
         return;
+    }
+    if(front==-1){
+        front=end=0;
     }else{
         end= (end+1)%max;
     }
