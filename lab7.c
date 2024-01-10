@@ -6,7 +6,7 @@ int queue[max],front = -1, end = -1;
 
 void insert(int num){
     if(front == (end+1)%max){
-        printf("Queue is full");
+        printf("Queue is full\n");
         return;
     }
     if(front==-1){
@@ -15,11 +15,12 @@ void insert(int num){
         end= (end+1)%max;
     }
     queue[end]=num;
+    printf("\n");
 }
 
 void delete(){
     if(front==-1){
-        printf("Queue empty.");
+        printf("Queue empty.\n");
         return;
     }
     if(front == end){
@@ -31,7 +32,7 @@ void delete(){
 void display(){
     int i=front;
     do{
-        printf("%d",queue[i]);
+        printf("%d\t",queue[i]);
         i=(i+1)%max;
     }while(i!=end);
 
