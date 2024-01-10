@@ -28,8 +28,12 @@ void delete(){
     }
 }
 void display(){
+    int i=front;
+    do{
+        printf("%d",queue[i]);
+        i=(i+1)%max;
+    }while(i!=end);
     
-
 }
 
 void main()
