@@ -15,10 +15,22 @@ void insert(int num){
         queue[end]=num;
     }
 }
+
 void delete(){
-    
+    if(front==-1){
+        printf("Queue empty.");
+        return;
+    }
+    if(front == end){
+        front=end=-1;
+    }else{
+        front=(front+1)%max;
+    }
 }
-void display();
+void display(){
+    
+
+}
 
 void main()
 {
