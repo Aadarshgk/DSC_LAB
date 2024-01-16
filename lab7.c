@@ -72,7 +72,7 @@ void display()
 
             case 2:
                 delete ();
-                printf("Caller id removed from queue.");
+                printf("Caller id removed from queue.\n");
                 break;
 
             case 3:
