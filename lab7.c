@@ -48,44 +48,45 @@ void display()
     }
     else
     {
-        for(i=front;i<end;i=(i+1)%max){
-            printf("%d\t",queue[i]);
+        for (i = front; i < end; i = (i + 1) % max)
+        {
+            printf("%d\t", queue[i]);
         }
-        printf("%d\n",queue[end]);
+        printf("%d\n", queue[end]);
     }
 }
 
-    void main()
+void main()
+{
+    int choice, id;
+    while (1)
     {
-        int choice, id;
-        while (1)
+        printf("1.Add caller\n2.Delete caller\n3.Display queue\n4.Exit\nEnter choice:");
+        scanf("%d", &choice);
+        switch (choice)
         {
-            printf("1.Add caller\n2.Delete caller\n3.Display queue\n4.Exit\nEnter choice:");
-            scanf("%d", &choice);
-            switch (choice)
-            {
-            case 1:
-                printf("Enter caller id:");
-                scanf("%d", &id);
-                insert(id);
-                break;
+        case 1:
+            printf("Enter caller id:");
+            scanf("%d", &id);
+            insert(id);
+            break;
 
-            case 2:
-                delete ();
-                printf("Caller id removed from queue.\n");
-                break;
+        case 2:
+            delete ();
+            printf("Caller id removed from queue.\n");
+            break;
 
-            case 3:
-                display();
-                break;
+        case 3:
+            display();
+            break;
 
-            case 4:
-                exit(0);
-                break;
+        case 4:
+            exit(0);
+            break;
 
-            default:
-                printf("Invalid choice");
-                break;
-            }
+        default:
+            printf("Invalid choice");
+            break;
         }
     }
+}
