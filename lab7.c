@@ -1,3 +1,5 @@
+//lab 7 program
+
 #include <stdio.h>
 #include <stdlib.h>
 #define max 3
