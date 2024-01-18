@@ -1,4 +1,8 @@
-//lab 7 program
+// A Call center phone system has to hold the phone calls from customers
+// and provide service based on the arrival time of the calls. Write a C
+// program to simulate this system using appropriate data structure.
+// Program should have options to add and remove the phone calls in
+// appropriate order for their service
 
 #include <stdio.h>
 #include <stdlib.h>
