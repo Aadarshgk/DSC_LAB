@@ -4,13 +4,49 @@
 typedef struct node_st{
     int data;
     struct node_st* next;
-    struct node_st* prev;
 }node;
 
 node* start= NULL;
 
-void insert_at_start();
-void insert_at_end();
+node* getNode(){
+    node* nn= (node*)malloc(sizeof(node));
+    nn->next=NULL;
+    return nn;
+}
+
+void insert_at_start(int num){
+    node* nn= getNode();
+    nn->data=num;
+    if(start==NULL){
+        start=nn;
+        start->next=start;
+        return;
+    }
+
+    node* temp= start;
+    while(temp->next!=start){
+        temp= temp->next;
+    }
+    temp->next= nn;
+    nn->next=start;
+    start= nn;
+}
+
+void insert_at_end(int num){
+    node* nn= getNode();
+    nn->data=num;    
+    if(start==NULL){
+        start=nn;
+        start->next=start;
+        return;
+    }
+    node* temp= start;
+    while(temp->next!=start){
+        temp=temp->next;
+    }
+    temp->next=nn;
+    nn->next= start;
+}
 void delete_at_start();
 void delete_at_end();
 void main(){}
