@@ -1,13 +1,30 @@
 #include<stdio.h>
 
-typedef struct node{
+typedef struct node_st{
     int data;
     struct node* next;
-}nn;
+}node;
 
-nn* start = NULL;
+node* start = NULL;
 
-void insert(int num);
+node* getnode(){
+    node* temp= (node*)malloc(sizeof(node));
+    temp->next= NULL;
+    return temp;   
+}
+
+void insert_at_start(int num){
+    node* nn = getnode();
+    nn->data= num;
+    nn->next=  start;
+    start = nn;
+}
+
+void insert_at_end(int num){
+
+}
+
+
 void delete();
 void display();
 void main();
