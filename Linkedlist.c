@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include<stdlib.h>
 
 typedef struct node_st
 {
@@ -126,4 +127,9 @@ void display(){
         temp=temp->next;
     }
 }
-void main();
+void main(){
+    int choice;
+    while(1){
+
+    }
+}
