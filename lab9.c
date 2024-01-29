@@ -110,8 +110,20 @@ void delete_node(int key)
         prev=temp;
         temp=temp->next;
     }
-    printf("Key not found.");    
+    printf("Key not found.\n");    
 }
 
-void display();
+void display(){
+    if(start== NULL){
+        printf("List empty\n");
+        return;
+    }
+    
+    printf("List: ");
+    node* temp= start;
+    while(temp->next!=NULL){
+        printf("%d",temp->data);
+        temp=temp->next;
+    }
+}
 void main();
