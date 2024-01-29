@@ -1,5 +1,5 @@
 #include <stdio.h>
-#include<stdlib.h>
+#include <stdlib.h>
 #define max 3
 
 struct queue
@@ -10,24 +10,23 @@ struct queue
 struct queue cqueue[max];
 int front = -1, end = -1;
 
-void insert()
+void insert(int num)
 {
-    if (front == -1)
-    {
-        front = end = 0;
-    }
-
     if ((end + 1) % max == front)
     {
         printf("Queue is full");
+        return;
     }
-    else
+    
+    if (front == -1)
+    {
+        front = end = 0;
+    }else
     {
         end = (end + 1) % max;
     }
 
-    printf("Enter integrer:");
-    scanf("%d", cqueue[end].data);
+    cqueue[end].data = num;
 }
 
 void delete()
@@ -69,30 +68,32 @@ void display()
 
 void main()
 {
-    int choice;
-    while (1){
-        printf("1.Insert\n2.Delete\3.Display\n4.Exit\nEnter choice:");
-        scanf("%d",&choice);
-        switch(choice){
-            case 1:
-                insert();
-                break;
-            
-            case 2:
-                delete();
-                break;
-            
-            case 3:
-                display();
-                break;
-            
-            case 4:
-                exit(0);
-                break;
-            
-            default:
-                printf("Invalid entry.");
-                break;
+    int choice,num;
+    while (1)
+    {
+        printf("1.Insert\n2.Delete\n3.Display\n4.Exit\nEnter choice:");
+        scanf(" %d", &choice);
+        if (choice == 1)
+        {
+            printf("Enter integer:");
+            scanf("%d",&num);
+            insert(num);
+        }
+        else if (choice == 2)
+        {
+            delete ();
+        }
+        else if (choice == 3)
+        {
+            display();
+        }
+        else if (choice == 4)
+        {
+            exit(0);
+        }
+        else
+        {
+            printf("Invalid entry.");
         }
     }
 }
