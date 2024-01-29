@@ -55,35 +55,63 @@ void insert_after(int key, int num)
 
 void delete_at_start()
 {
-    if (start != NULL){
-        node* temp=start;
-        start= start->next;
+    if (start != NULL)
+    {
+        node *temp = start;
+        start = start->next;
         free(temp);
     }
-    else{
+    else
+    {
         printf("List empty");
     }
 };
 
-void delete_at_end(){
-    if(start== NULL){
+void delete_at_end()
+{
+    if (start == NULL)
+    {
         printf("list empty.");
         return;
     }
 
-    node* temp= start;
-    node* prev= NULL;
-    while(temp->next!= NULL){
-        prev= temp;
-        temp= temp->next;
+    node *temp = start;
+    node *prev = NULL;
+    while (temp->next != NULL)
+    {
+        prev = temp;
+        temp = temp->next;
     }
-    if(temp!=start){
-        prev->next= NULL;
+    if (temp == start)
+    {
+        start = NULL;
+        free(temp);
     }
     free(temp);
-    
+    prev->next = NULL;
 }
 
+void delete_node(int key)
+{
+    node* temp= start;
+    node* prev= NULL;
+    if (start == NULL)
+    {
+        printf("list empty.");
+        return;
+    }
+
+    while(temp->next!=NULL){
+        if(temp->data==key){
+            prev->next= temp->next;
+            free(temp);
+            return;
+        }
+        prev=temp;
+        temp=temp->next;
+    }
+    printf("Key not found.");    
+}
 
 void display();
 void main();
