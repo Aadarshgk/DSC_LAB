@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include<stdlib.h>
 #define max 3
 
 struct queue
@@ -62,10 +63,36 @@ void display()
         {
             printf("%d ", cqueue[i].data);
         }
-        printf("%d\n",cqueue[end].data);
+        printf("%d\n", cqueue[end].data);
     }
 }
 
 void main()
 {
+    int choice;
+    while (1){
+        printf("1.Insert\n2.Delete\3.Display\n4.Exit\nEnter choice:");
+        scanf("%d",&choice);
+        switch(choice){
+            case 1:
+                insert();
+                break;
+            
+            case 2:
+                delete();
+                break;
+            
+            case 3:
+                display();
+                break;
+            
+            case 4:
+                exit(0);
+                break;
+            
+            default:
+                printf("Invalid entry.");
+                break;
+        }
+    }
 }
