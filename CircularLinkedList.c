@@ -47,6 +47,21 @@ void insert_at_end(int num){
     temp->next=nn;
     nn->next= start;
 }
-void delete_at_start();
-void delete_at_end();
+void delete_at_start(){
+    if(start==NULL){
+        printf("List empty.");
+        return;
+    }
+    node* temp = start;
+    while(temp->next!= start){
+        temp= temp->next;
+    }
+    temp->next= start->next;
+    node* toDelete= start;
+    start=start->next;
+    free(toDelete);
+}
+void delete_at_end(){
+    
+}
 void main(){}
