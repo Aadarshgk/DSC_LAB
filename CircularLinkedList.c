@@ -71,4 +71,14 @@ void delete_at_end(){
     prev->next=start;
     free(temp);
 }
+
+void display(){
+    node* temp=start;
+    printf("Queue: %d ",temp->data);
+    temp=temp->next;
+    while(temp->next!= start){
+        printf("%d ", temp->next);
+        temp=temp->next;
+    }
+}
 void main(){}
