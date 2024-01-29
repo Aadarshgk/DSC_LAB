@@ -62,6 +62,13 @@ void delete_at_start(){
     free(toDelete);
 }
 void delete_at_end(){
-    
+    node* temp= start;
+    node* prev= NULL;
+    while(temp->next!= start){
+        prev= temp;
+        temp= temp->next;
+    }
+    prev->next=start;
+    free(temp);
 }
 void main(){}
