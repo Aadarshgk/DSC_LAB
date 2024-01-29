@@ -127,9 +127,5 @@ void display(){
         temp=temp->next;
     }
 }
-void main(){
-    int choice;
-    while(1){
 
-    }
-}
+void main(){}
