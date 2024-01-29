@@ -14,10 +14,10 @@ void insert(int num)
 {
     if ((end + 1) % max == front)
     {
-        printf("Queue is full");
+        printf("Queue is full\n");
         return;
     }
-    
+
     if (front == -1)
     {
         front = end = 0;
@@ -37,7 +37,7 @@ void delete()
     }
     if (front == -1)
     {
-        printf("Queue is empty");
+        printf("Queue is empty\n");
         return;
     }
 
