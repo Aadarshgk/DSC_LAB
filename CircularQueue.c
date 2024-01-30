@@ -2,12 +2,8 @@
 #include <stdlib.h>
 #define max 3
 
-struct queue
-{
-    int data;
-};
 
-struct queue cqueue[max];
+int cqueue[max];
 int front = -1, end = -1;
 
 void insert(int num)
@@ -26,7 +22,7 @@ void insert(int num)
         end = (end + 1) % max;
     }
 
-    cqueue[end].data = num;
+    cqueue[end] = num;
 }
 
 void delete()
@@ -60,9 +56,9 @@ void display()
         printf("Queue: ");
         for (int i = front; i != end; i = (i + 1) % max)
         {
-            printf("%d ", cqueue[i].data);
+            printf("%d ", cqueue[i]);
         }
-        printf("%d\n", cqueue[end].data);
+        printf("%d\n", cqueue[end]);
     }
 }
 
