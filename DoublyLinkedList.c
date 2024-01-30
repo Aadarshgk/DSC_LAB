@@ -100,6 +100,18 @@ void delete_after(int Key){
     return;
 }
 
-void display();
+void display(){
+    if(start==NULL){
+        printf("List is empty\n");
+        return;
+    }
+    node* temp= start;
+    printf("List: ");
+    while(temp->next!=NULL){
+        printf("%d ", temp->data);
+        temp=temp->next;
+    }
+    return;
+}
 
 void main(){}
