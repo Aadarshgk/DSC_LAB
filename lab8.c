@@ -1,54 +1,96 @@
-#include<stdio.h>
-#include<stdlib.h>
+#include <stdio.h>
+#include <stdlib.h>
 #define max 5
 
-int front=-1, end=-1;
-struct circular{
+int front = -1, end = -1;
+struct circular
+{
     int data;
-}cqueue[max];
+} cqueue[max];
 
-void insert(int num){
+void insert(int num)
+{
 
-    if((end+1)%max==front){
+    if ((end + 1) % max == front)
+    {
         printf("Queue full\n");
         return;
     }
-    if(front ==-1){
-        front=end=0;
-    }else{
-        end= (end+1)%max;
+    if (front == -1)
+    {
+        front = end = 0;
     }
-    cqueue[end].data =num;
+    else
+    {
+        end = (end + 1) % max;
+    }
+    cqueue[end].data = num;
     return;
 }
 
-void delete(){
+void delete()
+{
 
-    if(front==-1){
+    if (front == -1)
+    {
         printf("Queue empty\n");
         return;
     }
-    if(front==end){
-        front=end=-1;
+    if (front == end)
+    {
+        front = end = -1;
         return;
-    }else{
-        front = (front+1)%max;
+    }
+    else
+    {
+        front = (front + 1) % max;
         return;
     }
 }
-void display(){
-    if(front==-1){
+void display()
+{
+    if (front == -1)
+    {
         printf("Queue is empty\n");
         return;
     }
-    else{
+    else
+    {
         int i;
         printf("Queue: ");
-        for(i=front;i!=end;i=(i+1)%max){
-            printf("%d ",cqueue[i].data);
+        for (i = front; i != end; i = (i + 1) % max)
+        {
+            printf("%d ", cqueue[i].data);
         }
-        printf("%d ", cqueue[end].data);
+        printf("%d \n", cqueue[end].data);
     }
 }
 
-void main(){}
+void main()
+{
+    int choice, num;
+    while (1)
+    {
+        printf("1.Insert\n2.Delete\n3.Display\n4.Exit\nEnter choice:");
+        scanf("%d", &choice);
+        switch (choice)
+        {
+        case 1:
+            printf("Enter num:");
+            scanf("%d", &num);
+            insert(num);
+            break;
+        case 2:
+            delete(num);
+            break;
+        case 3:
+            display();
+            break;
+        case 4:
+            exit(0);
+        default:
+            printf("Invalid choice.\n");
+            break;
+        }
+    }
+}
