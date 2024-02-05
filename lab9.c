@@ -21,7 +21,6 @@ void insert(char *name)
 {
     node *nn = getnode();
     strcpy(nn->data, name);
-    start = nn;
     if (start == NULL)
     {
         start = nn;
@@ -29,7 +28,12 @@ void insert(char *name)
     else
     {
         node *temp = start;
-        while (temp->next != NULL&& strcmp(temp->data, name)<0)
+        if(strcmp(start->data,name)>0){
+            nn->next=start;
+            start= nn;
+            return;
+        }
+        while (temp->next != NULL&& strcmp(temp->next->data, name)<0)
         {
             temp = temp->next;
         }
@@ -42,7 +46,12 @@ void insert(char *name)
 void deleteKey(char *name){
     node* temp= start;
     node* prev= NULL;
-    while(temp->next!=NULL){
+    if(strcmp(start->data,name)==0){
+        start=temp->next;
+        free(temp);
+        return;
+    }
+    while(temp!=NULL){
         if(strcmp(name, temp->data)==0){
             prev->next=temp->next;
             free(temp);
@@ -51,6 +60,9 @@ void deleteKey(char *name){
         prev= temp;
         temp=temp->next;
     }
+
+    
+
     printf("Name not found in list.");
 }
 
@@ -63,9 +75,10 @@ void display(){
     printf("List: ");
     node* temp= start;
     while(temp->next!=NULL){
-        printf("%d",temp->data);
+        printf("%s ",temp->data);
         temp=temp->next;
     }
+    printf("%s ",temp->data);
 }
 
 void main()
@@ -80,10 +93,12 @@ void main()
         case 1:
             printf("Enter name to inserted:");
             scanf("%s",name);
+            insert(name);
             break;
         case 2:
             printf("Enter name to be deleted:");
             scanf("%s",name);
+            deleteKey(name);
             break;
 
         case 3:
