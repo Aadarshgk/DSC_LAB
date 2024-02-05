@@ -92,10 +92,10 @@ void main()
 
         case 4:
             exit(0);
-            break:
+            break;
 
         default:
-            printf("Invalid choice.")
+            printf("Invalid choice.");
             break;
         }
     }
