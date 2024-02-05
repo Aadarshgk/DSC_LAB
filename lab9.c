@@ -72,7 +72,31 @@ void main()
 {
     int choice;
     char name[50];
-    whiile(1){
-        printf("1.Insert name\n2.Delete name")
+    while(1){
+        printf("1.Insert name\n2.Delete name\n3.Display\n4.Exit\nEnter choice:");
+        scanf("%d",&choice);
+        switch (choice)
+        {
+        case 1:
+            printf("Enter name to inserted:");
+            scanf("%s",name);
+            break;
+        case 2:
+            printf("Enter name to be deleted:");
+            scanf("%s",name);
+            break;
+
+        case 3:
+            display();
+            break;
+
+        case 4:
+            exit(0);
+            break:
+
+        default:
+            printf("Invalid choice.")
+            break;
+        }
     }
 }
