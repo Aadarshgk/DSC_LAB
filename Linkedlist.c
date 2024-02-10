@@ -175,6 +175,4 @@ void main() {
     reverseList(start);
 
     display();
-
-
 }
