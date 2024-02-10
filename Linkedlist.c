@@ -1,13 +1,14 @@
 #include <stdio.h>
-#include<stdlib.h>
+#include <stdlib.h>
 
 typedef struct node_st
 {
     int data;
-    struct node *next;
+    struct node_st *next;
 } node;
 
 node *start = NULL;
+node *end = NULL;
 
 node *getnode()
 {
@@ -26,14 +27,18 @@ void insert_at_start(int num)
 
 void insert_at_end(int num)
 {
-    node *nn = getnode();
-    nn->data = num;
+    if(start == NULL){
+        start= getnode();
+        start->data=num;
+        return;
+    }
     node *temp = start;
     while (temp->next != NULL)
     {
         temp = temp->next;
     }
-    temp->next = nn;
+    temp->next = getnode();
+    temp->next->data=num;
 }
 
 void insert_after(int key, int num)
@@ -94,38 +99,82 @@ void delete_at_end()
 
 void delete_node(int key)
 {
-    node* temp= start;
-    node* prev= NULL;
+    node *temp = start;
+    node *prev = NULL;
     if (start == NULL)
     {
         printf("list empty.");
         return;
     }
 
-    while(temp->next!=NULL){
-        if(temp->data==key){
-            prev->next= temp->next;
+    while (temp->next != NULL)
+    {
+        if (temp->data == key)
+        {
+            prev->next = temp->next;
             free(temp);
             return;
         }
-        prev=temp;
-        temp=temp->next;
+        prev = temp;
+        temp = temp->next;
     }
-    printf("Key not found.\n");    
+    printf("Key not found.\n");
 }
 
-void display(){
-    if(start== NULL){
+void display()
+{
+    if (start == NULL)
+    {
         printf("List empty\n");
         return;
     }
-    
+
     printf("List: ");
-    node* temp= start;
-    while(temp->next!=NULL){
-        printf("%d",temp->data);
-        temp=temp->next;
+    node *temp = start;
+    while (temp != NULL)
+    {
+        printf("%d ", temp->data);
+        temp = temp->next;
     }
 }
 
-void main(){}
+void reverseList(node *head)
+{
+
+    node *temp = start;
+    while (temp->next != NULL && temp->next != head)
+    {
+        temp = temp->next;
+    }
+    if (temp->next == NULL)
+    {
+        end = temp;
+    }
+    else if (head==start)
+    {
+        start = end;
+        head->next = NULL;
+        return;
+    }
+
+    else
+    {
+        head->next = temp;
+    }
+    head = temp;
+    reverseList(head);
+}
+void main() {
+    insert_at_end(1);
+    insert_at_end(2);
+    insert_at_end(3);
+    insert_at_end(4);
+    insert_at_end(5);
+    display();
+
+    reverseList(start);
+
+    display();
+
+
+}
