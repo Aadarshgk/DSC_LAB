@@ -59,21 +59,62 @@ void insert(int key, int num)
     }
 }
 
-
-void delete(int num) {}
-
-void display(){
-    node* temp=start;
-    while(temp!=NULL){
-        printf(" %d ",temp->data);
-        temp=temp->next;
+void delete(int key)
+{
+    if (start == NULL)
+    {
+        printf("List empty\n");
+        return;
     }
+    else
+    {
+        node *temp = start;
+        while (temp->next != NULL && temp->data != key)
+        {
+            temp = temp->next;
+        }
+        if (temp == start)
+        {
+            start = start->next;
+            free(temp);
+            return;
+        }
+        else if (temp->next == NULL)
+        {
+            if (temp->data == key)
+            {
+                temp->prev->next = NULL;
+                free(temp);
+                return;
+            }else{
+                printf("Key not found\n");
+                return;
+            }
+        }
+        else {
+            temp->prev->next=temp->next;
+            temp->next->prev=temp->prev;
+            free(temp);
+            return;
+        }
+    }
+}
+
+void display()
+{
+    if(start== NULL){
+        printf("List empty!\n");
+        return;
+    }
+    node *temp = start;
+    while (temp != NULL)
+    {
+        printf(" %d ", temp->data);
+        temp = temp->next;
+    }
+    printf("\n");
 }
 
 void main()
 {
-    insert(1,1);
-    insert(1,2);
-    insert(2,3);
-    display();
 }
