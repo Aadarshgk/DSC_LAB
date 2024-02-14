@@ -17,7 +17,7 @@ node *getnode()
     return nn;
 }
 
-void insert(int key, int num)
+void insert(int num, int key)
 {
     if (start == NULL)
     {
@@ -27,34 +27,26 @@ void insert(int key, int num)
     else
     {
         node *temp = start;
-        while (temp->next != NULL && temp->data != key)
+        while (temp!= NULL && temp->data != key)
         {
             temp = temp->next;
         }
 
-        if (temp == start)
-        {
-            node *nn = getnode();
-            nn->data = num;
-            nn->next = temp;
-            start->prev = nn;
-            start = nn;
-            return;
-        }
-        else if (temp->next == NULL)
+        if (temp == NULL)
         {
             printf("Key not found");
             return;
         }
-        else
-        {
-            node *nn = getnode();
-            nn->data = num;
-            nn->next = temp->next;
-            nn->prev = temp;
-            nn->next->prev = nn;
-            temp->next = nn;
-            return;
+        node *nn = getnode();
+        nn->data = num;
+        nn->next = temp;
+        nn->prev= temp->prev;
+        temp->prev=nn;
+
+        if(nn->prev!=NULL){
+            nn->prev->next=nn;
+        }else{
+            start=nn;
         }
     }
 }
@@ -86,14 +78,17 @@ void delete(int key)
                 temp->prev->next = NULL;
                 free(temp);
                 return;
-            }else{
+            }
+            else
+            {
                 printf("Key not found\n");
                 return;
             }
         }
-        else {
-            temp->prev->next=temp->next;
-            temp->next->prev=temp->prev;
+        else
+        {
+            temp->prev->next = temp->next;
+            temp->next->prev = temp->prev;
             free(temp);
             return;
         }
@@ -102,7 +97,8 @@ void delete(int key)
 
 void display()
 {
-    if(start== NULL){
+    if (start == NULL)
+    {
         printf("List empty!\n");
         return;
     }
@@ -117,4 +113,32 @@ void display()
 
 void main()
 {
+    int choice, num, key;
+    while (1)
+    {
+        printf("1.Insert\n2.Delete\n.3.Diplay\n4.Exit\nEnter choice:");
+        scanf("%d", &choice);
+        switch(choice){
+            case 1:
+                printf("Enter number to be inserted:");
+                scanf("%d",&num);
+                printf("Enter key: ");
+                scanf("%d",&key);
+               insert(num,key);
+               break;
+            case 2:
+                printf("Enter number to be deleted:");
+                scanf("%d",&num);
+                delete(num);
+                break;
+            case 3:
+                display();
+                break;
+            case 4:
+                exit(0);
+            default:
+                printf("Invalid entry");
+         
+        }
+    }
 }
