@@ -116,7 +116,7 @@ void main()
     int choice, num, key;
     while (1)
     {
-        printf("1.Insert\n2.Delete\n.3.Diplay\n4.Exit\nEnter choice:");
+        printf("1.Insert\n2.Delete\n3.Diplay\n4.Exit\nEnter choice:");
         scanf("%d", &choice);
         switch(choice){
             case 1:
