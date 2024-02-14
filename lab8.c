@@ -81,7 +81,7 @@ void main()
             insert(num);
             break;
         case 2:
-            delete(num);
+            delete();
             break;
         case 3:
             display();
