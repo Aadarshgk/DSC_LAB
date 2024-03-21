@@ -1,3 +1,8 @@
+// Write a C program to simulate the working of a circular Queue of
+// integers. Represent circular queue element as a structure and use array
+// of structures as your implementation method. Start and end of the
+// circular queue must be identified by an empty array element. 
+
 #include <stdio.h>
 #include <stdlib.h>
 #define max 5
