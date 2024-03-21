@@ -1,3 +1,8 @@
+// Write a C program
+// a) To construct a binary tree of integers.
+// b) To traverse the tree using inorder, preorder and postorder traversal
+// methods 
+
 #include <stdio.h>
 #include <stdlib.h>
 
