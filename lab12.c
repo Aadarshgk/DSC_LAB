@@ -134,7 +134,7 @@ void main()
                 if(res == NULL){
                     printf("Number not found.\n");
                 }else{
-                    printf("Number found in the tree. %d", res->data);
+                    printf("Number found in the tree. %d\n", res->data);
                 }
                 break;
 
