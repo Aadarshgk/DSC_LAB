@@ -41,15 +41,6 @@ void insert(int n, int p)
     }
 }
 
-void display()
-{
-    node *temp = start;
-    while (temp != NULL)
-    {
-        printf("%d ", temp->num);
-        temp = temp->next;
-    }
-}
 
 void delete(){
     if(start==NULL){
@@ -62,6 +53,18 @@ void delete(){
     free(temp);
     return;
 }
+
+void display()
+{
+    node *temp = start;
+    while (temp != NULL)
+    {
+        printf("%d ", temp->num);
+        temp = temp->next;
+    }
+}
+
+
 
 void main()
 {
