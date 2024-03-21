@@ -42,6 +42,20 @@ node *insert(node *head, int num)
     return head;
 }
 
+node *search(node *head, int n){
+    if(head==NULL){
+        return head;
+    }
+    else if(n>head->data){
+        return search(head->right,n);
+    }
+    else if(n<head->data){
+        return search(head->left,n);
+    }else{
+        return head;
+    }
+}
+
 void inorder(node *head)
 {
     if (head != NULL)
@@ -92,7 +106,7 @@ void main()
 
     int choice, num;
     while (1){
-        printf("1.Insert\n2.Inorder\n3.Preorder\n4.Postoreder\n5.Exit\nEnter choice:");
+        printf("1.Insert\n2.Inorder\n3.Preorder\n4.Postoreder\n5.Exit\n6.Search\nEnter choice:");
         scanf("%d",&choice);
         switch(choice){
             case 1:
@@ -112,6 +126,18 @@ void main()
 
             case 5:
                 exit(0);
+
+            case 6:
+                printf("Enter number to search: ");
+                scanf("%d",&num);
+                node *res= search(root,num);
+                if(res == NULL){
+                    printf("Number not found.\n");
+                }else{
+                    printf("Number found in the tree. %d", res->data);
+                }
+                break;
+
             default:
                 printf("Invalid entry");
 
