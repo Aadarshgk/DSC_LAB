@@ -72,7 +72,6 @@ void main()
 {
     int a[50], x;
     int len = 0;
-    int *aptr = a;
     while (1)
     {
         printf("1.CREATE\n");
@@ -92,11 +91,11 @@ void main()
             {
                 len = l;
             }
-            create(aptr, l);
+            create(a, l);
             break;
 
         case 2:
-            display(aptr, len);
+            display(a, len);
             break;
 
         case 3:
@@ -105,7 +104,7 @@ void main()
             scanf("%d", &n);
             printf("Enter the position of the element to be inserted:");
             scanf("%d", &pos);
-            len = insert(aptr, n, pos, len);
+            len = insert(a, n, pos, len);
             printf("\n");
             break;
 
@@ -113,7 +112,7 @@ void main()
             printf("Enter the position of the element to be deleted: ");
             // int pos;
             scanf("%d", &pos);
-            len = delete (aptr, pos, len);
+            len = delete (a, pos, len);
             printf("\n");
             break;
         default:
