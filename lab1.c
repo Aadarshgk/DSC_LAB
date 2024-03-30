@@ -32,7 +32,7 @@ void display(int *aptr, int l)
 
 int insert(int *aptr, int n, int pos, int len)
 {
-    if ((pos > len - 1) || pos < 0)
+    if ((pos >=len) || pos < 0)
     {
         printf("Invalid index.");
         return len;
