@@ -3,7 +3,7 @@
 // a) Insert a new node to the left of the node whose key value is read as
 // an input.
 // b) Delete a node with given data, if it is found otherwise display
-// appropriate error message. 
+// appropriate error message.
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -34,7 +34,7 @@ void insert(int num, int key)
     else
     {
         node *temp = start;
-        while (temp!= NULL && temp->data != key)
+        while (temp != NULL && temp->data != key)
         {
             temp = temp->next;
         }
@@ -47,13 +47,16 @@ void insert(int num, int key)
         node *nn = getnode();
         nn->data = num;
         nn->next = temp;
-        nn->prev= temp->prev;
-        temp->prev=nn;
+        nn->prev = temp->prev;
+        temp->prev = nn;
 
-        if(nn->prev!=NULL){
-            nn->prev->next=nn;
-        }else{
-            start=nn;
+        if (nn->prev != NULL)
+        {
+            nn->prev->next = nn;
+        }
+        else
+        {
+            start = nn;
         }
     }
 }
@@ -68,7 +71,7 @@ void delete(int key)
     else
     {
         node *temp = start;
-        while (temp->next != NULL && temp->data != key)
+        while (temp != NULL && temp->data != key)
         {
             temp = temp->next;
         }
@@ -78,24 +81,18 @@ void delete(int key)
             free(temp);
             return;
         }
-        else if (temp->next == NULL)
+        else if (temp == NULL)
         {
-            if (temp->data == key)
-            {
-                temp->prev->next = NULL;
-                free(temp);
-                return;
-            }
-            else
-            {
-                printf("Key not found\n");
-                return;
-            }
+            printf("Key not found\n");
+            return;
         }
         else
         {
             temp->prev->next = temp->next;
-            temp->next->prev = temp->prev;
+            if (temp->next != NULL)
+            {
+                temp->next->prev = temp->prev;
+            }
             free(temp);
             return;
         }
@@ -125,27 +122,27 @@ void main()
     {
         printf("1.Insert\n2.Delete\n3.Diplay\n4.Exit\nEnter choice:");
         scanf("%d", &choice);
-        switch(choice){
-            case 1:
-                printf("Enter number to be inserted:");
-                scanf("%d",&num);
-                printf("Enter key: ");
-                scanf("%d",&key);
-               insert(num,key);
-               break;
-            case 2:
-                printf("Enter number to be deleted:");
-                scanf("%d",&num);
-                delete(num);
-                break;
-            case 3:
-                display();
-                break;
-            case 4:
-                exit(0);
-            default:
-                printf("Invalid entry");
-         
+        switch (choice)
+        {
+        case 1:
+            printf("Enter number to be inserted:");
+            scanf("%d", &num);
+            printf("Enter key: ");
+            scanf("%d", &key);
+            insert(num, key);
+            break;
+        case 2:
+            printf("Enter number to be deleted:");
+            scanf("%d", &num);
+            delete (num);
+            break;
+        case 3:
+            display();
+            break;
+        case 4:
+            exit(0);
+        default:
+            printf("Invalid entry");
         }
     }
 }
