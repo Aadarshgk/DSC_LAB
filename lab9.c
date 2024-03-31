@@ -80,11 +80,10 @@ void display(){
     
     printf("List: ");
     node* temp= start;
-    while(temp->next!=NULL){
+    while(temp=NULL){
         printf("%s ",temp->data);
         temp=temp->next;
     }
-    printf("%s ",temp->data);
 }
 
 void main()
