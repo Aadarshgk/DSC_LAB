@@ -32,7 +32,7 @@ void insert(){
     scanf("%d",&n);
     printf("Enter the position of the element:");
     scanf("%d",&pos);
-    if(pos>len+1 ||  pos< 0){
+    if(pos>len+1 ||  pos< 1){
         printf("Invalid position.");
         return;
     }else{
