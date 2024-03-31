@@ -54,7 +54,7 @@ void display()
     }
     else
     {
-        for (i = front; i < end; i = (i + 1) % max)
+        for (i = front; i != end; i = (i + 1) % max)
         {
             printf("%d\t", queue[i]);
         }
